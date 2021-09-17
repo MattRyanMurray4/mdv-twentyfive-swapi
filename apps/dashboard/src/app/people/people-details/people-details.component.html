@@ -1,0 +1,119 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title *ngIf="currentPeople.id; else submitNew">
+      <h1>
+        {{ originalName }}
+      </h1>
+    </mat-card-title>
+    <ng-template #submitNew>
+      <h1>Submit a New Character</h1>
+    </ng-template>
+  </mat-card-header>
+  <form
+    [formGroup]="form"
+    #formDirective="ngForm"
+    (ngSubmit)="saveForm(formDirective)"
+  >
+    <mat-card-content>
+      <mat-form-field class="full-width" appearance="outline" floatlabel>
+        <mat-label>Name</mat-label>
+        <input
+          matInput
+          placeholder="Name"
+          formControlName="name"
+          type="text"
+          name="name"
+        />
+        <mat-error *ngIf="form.get('name')">Required Field</mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width" appearance="outline" floatlabel>
+        <mat-label>Height</mat-label>
+        <input
+          matInput
+          placeholder="Height"
+          formControlName="height"
+          type="text"
+          name="height"
+        />
+        <mat-error *ngIf="form.get('height')">Required Field</mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width" appearance="outline" floatlabel>
+        <mat-label>Mass</mat-label>
+        <input
+          matInput
+          placeholder="Mass"
+          formControlName="mass"
+          type="text"
+          name="mass"
+        />
+        <mat-error *ngIf="form.get('mass')">Required Field</mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width" appearance="outline" floatlabel>
+        <mat-label>Hair Color</mat-label>
+        <input
+          matInput
+          placeholder="Hair Color"
+          formControlName="hair_color"
+          type="text"
+          name="hair_color"
+        />
+        <mat-error *ngIf="form.get('hair_color')">Required Field</mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width" appearance="outline" floatlabel>
+        <mat-label>Skin Color</mat-label>
+        <input
+          matInput
+          placeholder="Skin Color"
+          formControlName="skin_color"
+          type="text"
+          name="skin_color"
+        />
+        <mat-error *ngIf="form.get('skin_color')">Required Field</mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width" appearance="outline" floatlabel>
+        <mat-label>Eye Color</mat-label>
+        <input
+          matInput
+          placeholder="Eye Color"
+          formControlName="eye_color"
+          type="text"
+          name="eye_color"
+        />
+        <mat-error *ngIf="form.get('eye_color')">Required Field</mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width" appearance="outline" floatlabel>
+        <mat-label>Birth Year</mat-label>
+        <input
+          matInput
+          placeholder="Birth Year"
+          formControlName="birth_year"
+          type="text"
+          name="birth_year"
+        />
+        <mat-error *ngIf="form.get('birth_year')">Required Field</mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width" appearance="outline" floatlabel>
+        <mat-label>Gender</mat-label>
+        <input
+          matInput
+          placeholder="Gender"
+          formControlName="gender"
+          type="text"
+          name="gender"
+        />
+        <mat-error *ngIf="form.get('gender')">Required Field</mat-error>
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <button
+        mat-button
+        type="submit"
+        [disabled]="form.invalid"
+        color="primary"
+      >
+        {{ currentPeople.id ? 'Submit' : 'Update' }}
+      </button>
+      <button type="button" mat-button (click)="cancel()">Cancel</button>
+    </mat-card-actions>
+  </form>
+</mat-card>

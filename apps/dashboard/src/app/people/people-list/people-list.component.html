@@ -1,0 +1,24 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title> <h1>Select a Character</h1> </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item
+        *ngFor="let people of peoples"
+        (click)="selected.emit(people)"
+        class="mat-list-item"
+      >
+        <h1 matLine>{{ people.name }}</h1>
+        <!-- <p matLine>{{people}}</p> -->
+        <button
+          mat-icon-button
+          (click)="deleted.emit(people); $event.stopImmediatePropagation()"
+        >
+          <mat-icon *ngIf="!readonly">delete</mat-icon>
+        </button>
+        <!-- add sub route button -->
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>

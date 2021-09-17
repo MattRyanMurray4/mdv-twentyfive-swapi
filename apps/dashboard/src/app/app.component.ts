@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Message } from '@swapi/api-interfaces';
 
 @Component({
   selector: 'swapi-root',
@@ -8,6 +6,9 @@ import { Message } from '@swapi/api-interfaces';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  hello$ = this.http.get<Message>('/api/hello');
-  constructor(private http: HttpClient) {}
+  title = 'SWAPI-APP';
+  links = [
+    { path: '/', icon: 'home', title: 'Login' },
+    { path: 'people', icon: 'view_list', title: 'People' },
+  ];
 }

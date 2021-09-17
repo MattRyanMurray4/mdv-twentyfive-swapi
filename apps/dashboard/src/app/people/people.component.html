@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="col-50" layout="row" layout-align="center center">
+    <swapi-people-list
+      [peoples]="people$ | async"
+      (selected)="selectPeople($event)"
+      (deleted)="deletePeople($event)"
+    ></swapi-people-list>
+  </div>
+  <div class="col-50" layout="row" layout-align="center center">
+    <swapi-people-details
+      [form]="form"
+      [people]="selectedPeople$ | async"
+      (cancelled)="cancel()"
+    ></swapi-people-details>
+  </div>
+</div>
